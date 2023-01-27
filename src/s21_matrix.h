@@ -30,6 +30,7 @@ int s21_determinant(matrix_t *A, double *result);
 int correct_matrix(matrix_t *A);
 int equal_size(matrix_t *A, matrix_t *B);
 void minor(matrix_t *A, matrix_t *minor, int x, int y);
-double determ_for_two(matrix_t *A);
+double determ_two(matrix_t *A);
+double determ_three(matrix_t *A);
 
-#endif // SRC_S21_MATRIX_H_
+#endif  // SRC_S21_MATRIX_H_

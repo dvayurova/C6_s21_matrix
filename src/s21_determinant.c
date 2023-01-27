@@ -9,12 +9,12 @@ int s21_determinant(matrix_t *A, double *result) {
       } else if (A->rows == 2) {
         *result = determ_for_two(A);
       } else if (A->rows == 3) {
-        det = A->matrix[0][0] *
+        *result = determ_three(A);
       } else {
       }
     } else
-      res = INCORRECT;
+      res_code = INCORRECT;
   } else
-    res = CALC_ERROR;
+    res_code = CALC_ERROR;
   return res_code;
 }
