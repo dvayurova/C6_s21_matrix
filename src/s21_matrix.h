@@ -24,9 +24,12 @@ int s21_sub_matrix(matrix_t *A, matrix_t *B, matrix_t *result);
 int s21_mult_number(matrix_t *A, double number, matrix_t *result);
 int s21_mult_matrix(matrix_t *A, matrix_t *B, matrix_t *result);
 int s21_transpose(matrix_t *A, matrix_t *result);
+int s21_determinant(matrix_t *A, double *result);
 
 // sup funcs
 int correct_matrix(matrix_t *A);
 int equal_size(matrix_t *A, matrix_t *B);
+void minor(matrix_t *A, matrix_t *minor, int x, int y);
+double determ_for_two(matrix_t *A);
 
 #endif // SRC_S21_MATRIX_H_
