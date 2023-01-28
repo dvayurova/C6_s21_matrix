@@ -43,12 +43,3 @@ int minor(matrix_t *A, matrix_t *minor, int x, int y) {
 double determ_two(matrix_t *A) {
   return A->matrix[0][0] * A->matrix[1][1] - A->matrix[1][0] * A->matrix[0][1];
 }
-
-double determ_three(matrix_t *A) {
-  return A->matrix[0][0] * A->matrix[1][1] * A->matrix[2][2] +
-         A->matrix[0][1] * A->matrix[1][2] * A->matrix[2][0] +
-         A->matrix[0][2] * A->matrix[1][0] * A->matrix[2][1] -
-         A->matrix[0][2] * A->matrix[1][1] * A->matrix[2][0] -
-         A->matrix[0][0] * A->matrix[2][1] * A->matrix[1][2] -
-         A->matrix[0][1] * A->matrix[1][0] * A->matrix[2][2];
-}

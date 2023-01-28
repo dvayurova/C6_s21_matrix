@@ -10,8 +10,6 @@ int s21_determinant(matrix_t *A, double *result) {
         *result = A->matrix[0][0];
       } else if (A->rows == 2) {
         *result = determ_two(A);
-        // } else if (A->rows == 3) {
-        //   *result = determ_three(A);
       } else {
         for (int i = 0; i < A->rows; i++) {
           temp_det = 0;
