@@ -2,8 +2,8 @@
 
 int s21_sub_matrix(matrix_t *A, matrix_t *B, matrix_t *result) {
   int res = OK;
-  if (equal_size(A, B)) {
-    if (correct_matrix(A) && correct_matrix(B)) {
+  if (correct_matrix(A) && correct_matrix(B)) {
+    if (equal_size(A, B)) {
       res = s21_create_matrix(A->rows, A->columns, result);
       if (res == OK) {
         for (int i = 0; i < A->rows; i++) {
@@ -13,8 +13,8 @@ int s21_sub_matrix(matrix_t *A, matrix_t *B, matrix_t *result) {
         }
       }
     } else
-      res = INCORRECT;
+      res = CALC_ERROR;
   } else
-    res = CALC_ERROR;
+    res = INCORRECT;
   return res;
 }

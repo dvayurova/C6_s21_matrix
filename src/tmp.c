@@ -116,10 +116,10 @@ int main() {
   // }
   // matrix_t matrix_trns;
   // s21_transpose(&result, &matrix_trns);
-  s21_inverse_matrix(&matrixA, &result);
+  printf("\n s21_inverse_matrix = %d\n", s21_inverse_matrix(&matrixA, &result));
   printf("\n");
-  for (int i = 0; i < rows1; i++) {
-    for (int j = 0; j < columns1; j++) {
+  for (int i = 0; i < result.rows; i++) {
+    for (int j = 0; j < result.columns; j++) {
       printf("%f ", result.matrix[i][j]);
     }
     printf("\n");
@@ -128,6 +128,6 @@ int main() {
   // s21_determinant(&matrixA, &det);
   // printf("\n det = %f", det);
   s21_remove_matrix(&matrixA);
-  s21_remove_matrix(&result);
+  // s21_remove_matrix(&result);
   return 0;
 }
