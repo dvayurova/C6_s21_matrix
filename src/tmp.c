@@ -7,23 +7,23 @@ int main() {
   int columns1 = 3;
   matrix_t matrixA;
   // matrix_t matrixB;
-  // matrix_t result;
+  matrix_t result;
   printf("\n create A = %d \n", s21_create_matrix(rows1, columns1, &matrixA));
-  matrixA.matrix[0][0] = -1.4;
+  matrixA.matrix[0][0] = 1;
   matrixA.matrix[1][0] = 0;
-  matrixA.matrix[2][0] = 3;
+  matrixA.matrix[2][0] = 5;
   // matrixA.matrix[3][0] = 0;
   // matrixA.matrix[4][0] = -1;
   // matrixA.matrix[5][0] = 7;
-  matrixA.matrix[0][1] = -4.2;
-  matrixA.matrix[1][1] = 1;
-  matrixA.matrix[2][1] = 1;
+  matrixA.matrix[0][1] = 2;
+  matrixA.matrix[1][1] = 4;
+  matrixA.matrix[2][1] = 2;
   // matrixA.matrix[3][1] = 0;
   // matrixA.matrix[4][1] = 0;
   // matrixA.matrix[5][1] = 9;
-  matrixA.matrix[0][2] = 0;
-  matrixA.matrix[1][2] = 1;
-  matrixA.matrix[2][2] = 7;
+  matrixA.matrix[0][2] = 3;
+  matrixA.matrix[1][2] = 2;
+  matrixA.matrix[2][2] = 1;
   // matrixA.matrix[3][2] = 2;
   // matrixA.matrix[4][2] = 4;
   // matrixA.matrix[5][2] = 22;
@@ -107,17 +107,17 @@ int main() {
   //   }
   //   printf("\n");
   // }
-  // minor(&matrixA, &result, 0, 0);
-  // for (int i = 0; i < rows1 - 1; i++) {
-  //   for (int j = 0; j < columns1 - 1; j++) {
-  //     printf("%f ", result.matrix[i][j]);
-  //   }
-  //   printf("\n");
-  // }
-  double det = 0;
-  s21_determinant(&matrixA, &det);
-  printf("\n det = %f", det);
+  s21_calc_complements(&matrixA, &result);
+  for (int i = 0; i < rows1; i++) {
+    for (int j = 0; j < columns1; j++) {
+      printf("%f ", result.matrix[i][j]);
+    }
+    printf("\n");
+  }
+  // double det = 0;
+  // s21_determinant(&matrixA, &det);
+  // printf("\n det = %f", det);
   s21_remove_matrix(&matrixA);
-  // s21_remove_matrix(&matrixB);
+  s21_remove_matrix(&result);
   return 0;
 }
