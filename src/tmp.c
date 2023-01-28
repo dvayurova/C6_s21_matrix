@@ -4,31 +4,61 @@
 
 int main() {
   int rows1 = 3;
-  int columns1 = 4;
+  int columns1 = 3;
   matrix_t matrixA;
   // matrix_t matrixB;
-  matrix_t result;
+  // matrix_t result;
   printf("\n create A = %d \n", s21_create_matrix(rows1, columns1, &matrixA));
-  // matrixA.matrix[0][0] = 1;
-  // matrixA.matrix[1][0] = 2;
-  // matrixA.matrix[2][0] = 3;
-  // matrixA.matrix[0][1] = 4;
-  // matrixA.matrix[1][1] = 5;
-  // matrixA.matrix[2][1] = 6;
-  // matrixA.matrix[0][2] = 7;
-  // matrixA.matrix[1][2] = 8;
-  // matrixA.matrix[2][2] = 9;
-  // matrixA.matrix[0][3] = -5;
-  // matrixA.matrix[1][3] = 0;
-  // matrixA.matrix[2][3] = -10;
+  matrixA.matrix[0][0] = -1.4;
+  matrixA.matrix[1][0] = 0;
+  matrixA.matrix[2][0] = 3;
+  // matrixA.matrix[3][0] = 0;
+  // matrixA.matrix[4][0] = -1;
+  // matrixA.matrix[5][0] = 7;
+  matrixA.matrix[0][1] = -4.2;
+  matrixA.matrix[1][1] = 1;
+  matrixA.matrix[2][1] = 1;
+  // matrixA.matrix[3][1] = 0;
+  // matrixA.matrix[4][1] = 0;
+  // matrixA.matrix[5][1] = 9;
+  matrixA.matrix[0][2] = 0;
+  matrixA.matrix[1][2] = 1;
+  matrixA.matrix[2][2] = 7;
+  // matrixA.matrix[3][2] = 2;
+  // matrixA.matrix[4][2] = 4;
+  // matrixA.matrix[5][2] = 22;
+  // matrixA.matrix[0][3] = 0;
+  // matrixA.matrix[1][3] = 5;
+  // matrixA.matrix[2][3] = 1;
+  // matrixA.matrix[3][3] = 0;
+  // matrixA.matrix[4][3] = 2.3;
+  // matrixA.matrix[5][3] = 6;
+  // matrixA.matrix[0][4] = -2;
+  // matrixA.matrix[1][4] = 4;
+  // matrixA.matrix[2][4] = 0;
+  // matrixA.matrix[3][4] = -3;
+  // matrixA.matrix[4][4] = 2.7;
+  // matrixA.matrix[5][4] = 22;
+  // matrixA.matrix[0][5] = 5;
+  // matrixA.matrix[1][5] = 1;
+  // matrixA.matrix[2][5] = 3;
+  // matrixA.matrix[3][5] = -2;
+  // matrixA.matrix[4][5] = -20;
+  // matrixA.matrix[5][5] = 6;
   for (int i = 0; i < rows1; i++) {
     for (int j = 0; j < columns1; j++) {
-      matrixA.matrix[i][j] = i + j;
       printf("%f\t", matrixA.matrix[i][j]);
     }
     printf("\n");
   }
-
+  // s21_transpose(&matrixA, &matrixB);
+  // printf("\n");
+  // for (int i = 0; i < rows1; i++) {
+  //   for (int j = 0; j < columns1; j++) {
+  //     printf("%f\t", matrixB.matrix[i][j]);
+  //   }
+  //   printf("\n");
+  // }
   // int rows2 = 3;
   // int columns2 = 5;
   // printf("\n create B = %d \n", s21_create_matrix(rows2, columns2,
@@ -77,13 +107,16 @@ int main() {
   //   }
   //   printf("\n");
   // }
-  minor(&matrixA, &result, 0, 0);
-  for (int i = 0; i < rows1 - 1; i++) {
-    for (int j = 0; j < columns1 - 1; j++) {
-      printf("%f ", result.matrix[i][j]);
-    }
-    printf("\n");
-  }
+  // minor(&matrixA, &result, 0, 0);
+  // for (int i = 0; i < rows1 - 1; i++) {
+  //   for (int j = 0; j < columns1 - 1; j++) {
+  //     printf("%f ", result.matrix[i][j]);
+  //   }
+  //   printf("\n");
+  // }
+  double det = 0;
+  s21_determinant(&matrixA, &det);
+  printf("\n det = %f", det);
   s21_remove_matrix(&matrixA);
   // s21_remove_matrix(&matrixB);
   return 0;
