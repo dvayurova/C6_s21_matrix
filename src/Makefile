@@ -1,6 +1,6 @@
 .PHONY: all s21_matrix.a test gcov_report check rebuild clean unit_tests.o
 CC = gcc
-CFLAGS = -Wall -Werror -Wextra -std=c11 -g
+CFLAGS = -Wall -Werror -Wextra -std=c11 -g 
 GCOVFLAGS =  -fprofile-arcs -ftest-coverage 
 LC = lcov -c -d .
 C_FILES = s21*.c

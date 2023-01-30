@@ -13,11 +13,15 @@ int s21_determinant(matrix_t *A, double *result) {
       } else {
         for (int i = 0; i < A->rows; i++) {
           temp_det = 0;
-          if ((res_code = minor_matr(A, &temp_matrix, i, 0)) == OK)
+          if (s21_create_matrix(A->rows - 1, A->columns - 1, &temp_matrix) ==
+              OK) {
+            minor_matr(A, &temp_matrix, i, 0);
             res_code = s21_determinant(&temp_matrix, &temp_det);
-          *result =
-              *result + A->matrix[i][0] * temp_det * (i % 2 == 0 ? 1 : -1);
-          s21_remove_matrix(&temp_matrix);
+            *result =
+                *result + A->matrix[i][0] * temp_det * (i % 2 == 0 ? 1 : -1);
+            s21_remove_matrix(&temp_matrix);
+          } else
+            res_code = INCORRECT;
         }
       }
     } else

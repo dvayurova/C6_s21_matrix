@@ -21,22 +21,14 @@ int equal_size(matrix_t *A, matrix_t *B) {
   return res;
 }
 
-int minor_matr(matrix_t *A, matrix_t *minor_matrix, int x, int y) {
-  int res = OK;
-  if (correct_matrix(A)) {
-    if ((res = s21_create_matrix(A->rows - 1, A->columns - 1, minor_matrix)) ==
-        OK) {
-      for (int i = 0, m = 0; i < A->rows; i++, m++) {
-        for (int j = 0, n = 0; j < A->columns; j++, n++) {
-          if (i != x && j != y) minor_matrix->matrix[m][n] = A->matrix[i][j];
-          if (j == y) n--;
-        }
-        if (i == x) m--;
-      }
+void minor_matr(matrix_t *A, matrix_t *minor_matrix, int x, int y) {
+  for (int i = 0, m = 0; i < A->rows; i++, m++) {
+    for (int j = 0, n = 0; j < A->columns; j++, n++) {
+      if (i != x && j != y) minor_matrix->matrix[m][n] = A->matrix[i][j];
+      if (j == y) n--;
     }
-  } else
-    res = INCORRECT;
-  return res;
+    if (i == x) m--;
+  }
 }
 
 double determ_two(matrix_t *A) {

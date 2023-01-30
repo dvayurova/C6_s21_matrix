@@ -8,13 +8,10 @@ int s21_inverse_matrix(matrix_t *A, matrix_t *result) {
   if (correct_matrix(A)) {
     if (A->columns == A->rows) {
       s21_determinant(A, &det);
-      if (fabs(det) > 1e-7) {
-        res_code = s21_create_matrix(A->rows, A->columns, result);
-        if (res_code == OK) {
-          s21_calc_complements(A, &matrix_calc);
-          s21_transpose(&matrix_calc, &matrix_trns);
-          s21_mult_number(&matrix_trns, 1.0 / det, result);
-        }
+      if (fabs(det) >= 1e-7) {
+        res_code = s21_calc_complements(A, &matrix_calc);
+        res_code = s21_transpose(&matrix_calc, &matrix_trns);
+        res_code = s21_mult_number(&matrix_trns, 1.0 / det, result);
       } else
         res_code = CALC_ERROR;
     } else

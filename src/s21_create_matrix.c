@@ -13,7 +13,7 @@ int s21_create_matrix(int rows, int columns, matrix_t *result) {
         result->matrix[i] = (double *)calloc(columns, sizeof(double));
         if (result->matrix[i] == NULL) {
           stop = 1;
-          for (int j = 0; j < i; j++) free(result->matrix[j]);
+          for (int j = 0; j <= i; j++) free(result->matrix[j]);
         }
       }
     }
