@@ -19,8 +19,6 @@ int s21_create_matrix(int rows, int columns, matrix_t *result) {
     }
     if (stop == 1 || result->matrix == NULL) {
       res = INCORRECT;
-      free(result->matrix);
-      result->matrix = NULL;
     }
   } else {
     res = INCORRECT;

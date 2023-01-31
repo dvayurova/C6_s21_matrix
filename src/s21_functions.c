@@ -1,16 +1,15 @@
 #include "s21_matrix.h"
 
 int correct_matrix(matrix_t *A) {
-  int res = FAILURE;
-  if (A != NULL) {
-    if (A->rows >= 1 && A->columns >= 1 && A->matrix != NULL) {
-      for (int i = 0; i < A->rows; i++) {
-        if (A->matrix[i] != NULL)
-          res = SUCCESS;
-        else
-          res = FAILURE;
-      }
-    }
+  if (A == NULL) return FAILURE;
+  if (A->matrix == NULL) return FAILURE;
+  if (A->rows < 1 || A->columns < 1) return FAILURE;
+  int res = 0;
+  for (int i = 0; i < A->rows; i++) {
+    if (A->matrix[i] != NULL)
+      res = SUCCESS;
+    else
+      res = FAILURE;
   }
   return res;
 }

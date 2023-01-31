@@ -682,6 +682,7 @@ START_TEST(transpose) {
   }
   s21_remove_matrix(&matrixA);
   s21_remove_matrix(&correct_result);
+  s21_remove_matrix(&result);
 }
 END_TEST
 
@@ -719,6 +720,7 @@ START_TEST(transpose2) {
   }
   s21_remove_matrix(&matrixA);
   s21_remove_matrix(&correct_result);
+  s21_remove_matrix(&result);
 }
 END_TEST
 
@@ -764,6 +766,7 @@ START_TEST(calc_complements1) {
   }
   s21_remove_matrix(&matrixA);
   s21_remove_matrix(&correct_result);
+  s21_remove_matrix(&result);
 }
 END_TEST
 
@@ -801,6 +804,7 @@ START_TEST(calc_complements2) {
   }
   s21_remove_matrix(&matrixA);
   s21_remove_matrix(&correct_result);
+  s21_remove_matrix(&result);
 }
 END_TEST
 
@@ -925,6 +929,7 @@ START_TEST(inverse_matrix) {
   }
   s21_remove_matrix(&matrixA);
   s21_remove_matrix(&correct_result);
+  s21_remove_matrix(&result);
 }
 END_TEST
 
@@ -962,6 +967,7 @@ START_TEST(inverse_matrix2) {
   }
   s21_remove_matrix(&matrixA);
   s21_remove_matrix(&correct_result);
+  s21_remove_matrix(&result);
 }
 END_TEST
 

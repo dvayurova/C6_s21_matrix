@@ -4,6 +4,7 @@ int s21_determinant(matrix_t *A, double *result) {
   int res_code = OK;
   double temp_det = 0;
   matrix_t temp_matrix = {0};
+  *result = 0;
   if (correct_matrix(A)) {
     if (A->columns == A->rows) {
       if (A->rows == 1) {
