@@ -4,12 +4,14 @@ int correct_matrix(matrix_t *A) {
   if (A == NULL) return FAILURE;
   if (A->matrix == NULL) return FAILURE;
   if (A->rows < 1 || A->columns < 1) return FAILURE;
-  int res = 0;
-  for (int i = 0; i < A->rows; i++) {
+  int res = 0, stop = 0;
+  for (int i = 0; i < A->rows && !stop; i++) {
     if (A->matrix[i] != NULL)
       res = SUCCESS;
-    else
+    else {
       res = FAILURE;
+      stop = 1;
+    }
   }
   return res;
 }

@@ -564,6 +564,23 @@ START_TEST(mult_number_incorrect) {
 }
 END_TEST
 
+START_TEST(mult_number_calc_error) {
+  matrix_t matrixA;
+  matrix_t result;
+  int rows_A = 4, columns_A = 4;
+  double k = -56.987654321, num = INFINITY;
+  s21_create_matrix(rows_A, columns_A, &matrixA);
+  for (int i = 0; i < rows_A; i++) {
+    for (int j = 0; j < columns_A; j++) {
+      matrixA.matrix[i][j] = k;
+      k++;
+    }
+  }
+  ck_assert_int_eq(2, s21_mult_number(&matrixA, num, &result));
+  s21_remove_matrix(&matrixA);
+}
+END_TEST
+
 START_TEST(mult_matrix_correct) {
   matrix_t matrixA;
   matrix_t matrixB;
@@ -971,6 +988,19 @@ START_TEST(inverse_matrix2) {
 }
 END_TEST
 
+START_TEST(inverse_matrix3) {
+  matrix_t matrixA;
+  matrix_t result;
+  int rows_A = 1, columns_A = 1;
+  s21_create_matrix(rows_A, columns_A, &matrixA);
+  matrixA.matrix[0][0] = 21.424221;
+  ck_assert_int_eq(0, s21_inverse_matrix(&matrixA, &result));
+  ck_assert_ldouble_eq_tol(1 / matrixA.matrix[0][0], result.matrix[0][0], 1e-7);
+  s21_remove_matrix(&matrixA);
+  s21_remove_matrix(&result);
+}
+END_TEST
+
 START_TEST(inverse_matrix_calc_error) {
   matrix_t matrixA;
   matrix_t result;
@@ -1102,6 +1132,10 @@ int main(void) {
   suite_add_tcase(suite, mult_number_incorrect_Test);
   tcase_add_test(mult_number_incorrect_Test, mult_number_incorrect);
 
+  TCase *mult_number_calc_error_Test = tcase_create("mult_number_calc_error");
+  suite_add_tcase(suite, mult_number_calc_error_Test);
+  tcase_add_test(mult_number_calc_error_Test, mult_number_calc_error);
+
   TCase *mult_matrix_correct_Test = tcase_create("mult_matrix_correct");
   suite_add_tcase(suite, mult_matrix_correct_Test);
   tcase_add_test(mult_matrix_correct_Test, mult_matrix_correct);
@@ -1169,6 +1203,10 @@ int main(void) {
   TCase *inverse_matrix2_Test = tcase_create("inverse_matrix2");
   suite_add_tcase(suite, inverse_matrix2_Test);
   tcase_add_test(inverse_matrix2_Test, inverse_matrix2);
+
+  TCase *inverse_matrix3_Test = tcase_create("inverse_matrix3");
+  suite_add_tcase(suite, inverse_matrix3_Test);
+  tcase_add_test(inverse_matrix3_Test, inverse_matrix3);
 
   TCase *inverse_matrix_calc_error_Test =
       tcase_create("inverse_matrix_calc_error");

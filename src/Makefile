@@ -35,7 +35,7 @@ endif
 gcov_report : clean
 	$(CC) $(CFLAGS) $(GCOVFLAGS) -o gcov_test -lcheck $(C_FILES) unit_tests.c
 	./gcov_test 
-	$(LC) -o report.info
+	$(LC) -t "gcov_report" --no-external -o report.info
 	genhtml -o gcov_report report.info
 	rm -f *.gcno *.gcda *.info report.out *.gcov
 	open ./gcov_report/index-sort-f.html
